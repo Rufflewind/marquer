@@ -12,14 +12,14 @@ main: $(DIST)marquer.exe $(DIST)marquer.png
 
 $(DIST)marquer.exe: marquer.cpp $(TMP)marquer.res
 	-md $(DIST)
-        $(CXX) $(CXXFLAGS) $(LIBS) $(TMP)marquer.res marquer.cpp $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(LIBS) $(TMP)marquer.res marquer.cpp $(LDFLAGS)
 
 $(DIST)marquer.png: marquer.png
 	copy marquer.png $(DIST)marquer.png /y
 
 $(TMP)marquer.res: resource.h marquer.rc main.ico
-        -md $(TMP)
+	-md $(TMP)
 	$(RC) $(RFLAGS) marquer.rc
 
 clean:
-        -rd /s /q dist
+	-rd /s /q dist
